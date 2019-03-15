@@ -1,0 +1,43 @@
+@import "../../../styles/constants";
+.menu {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  li {
+    display: inline-block;
+    padding: 0 10px;
+    a:not(.btn) {
+      font-weight: 400;
+      display: inline-block;
+      padding: 10px 0;
+      text-transform: uppercase;
+      position: relative;
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: .1em;
+      &:after{
+        position: absolute;
+        display: inline-block;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        content: '';
+        transition: .3s all ease-in-out;
+        background: $gradient-main;
+      }
+      &.active,&:hover{
+        color: $color-secondary-main
+      }
+      &.active:after,&:hover:after{
+        width: 100%;
+      }
+      &:hover{
+
+      }
+    }
+
+  }
+
+
+}

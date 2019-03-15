@@ -1,0 +1,11 @@
+.blink-cursor {
+  border-left-width: 4px;
+  border-left-style: solid;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}

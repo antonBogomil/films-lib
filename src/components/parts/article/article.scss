@@ -1,0 +1,22 @@
+.article{
+  display: flex;
+  margin: 40px 0;
+  &.img_left{
+
+  }
+  &.img_right{
+    flex-direction: row-reverse;
+  }
+  .article-image{
+    width: 50%;
+    text-align: center;
+    overflow: hidden;
+    img{
+      max-width: 600px;
+      height: 500px;
+    }
+  }
+  .article-text{
+    width: 50%;
+  }
+}

@@ -1,0 +1,15 @@
+@import "../../../styles/constants";
+.container{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  .text-left{
+    max-width: 70%;
+    text-align: left;
+  }
+  .btn-container{
+    padding: 40px 0;
+  }
+
+}
