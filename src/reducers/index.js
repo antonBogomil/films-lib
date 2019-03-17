@@ -1,15 +1,5 @@
-const initialState = {
-    films: []
-};
-
-const reducer = (state = initialState, action) => {
-    switch (action.type) {
-        case 'FILMS_LOADED':
-            return {
-                films: action.payload
-            };
-        default:
-            return state
-    }
-};
-export default reducer;
+import { combineReducers } from 'redux'
+import auth from './auth';
+import films from './films';
+import modal from './modal';
+export default combineReducers({auth,films,modal});

@@ -13,6 +13,11 @@
   &:hover{
     color: #fff;
   }
+  &.filled{
+    color: #fff;
+    background:$gradient-main;
+  }
+
   &.animated{
     padding: 15px 30px;
     color: #fff;

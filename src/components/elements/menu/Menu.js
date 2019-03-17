@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 import './menu.scss';
 import Button from '../button';
 
-const Menu = props => {
+const Menu = () => {
 	return (
 		<ul className='menu'>
 			<li>
@@ -12,7 +12,18 @@ const Menu = props => {
 			<li>
 				<NavLink activeClassName='active' exact to="/films">Films</NavLink>
 			</li>
-			<li><Button >Contact us</Button></li>
+			<li><Button>Contact us</Button></li>
+			<li>
+				<Button
+					variant={'filled'}
+					onClick={()=>{
+						// openModal(true)
+					}}
+				>
+					Log in
+				</Button>
+			</li>
+
 		</ul>
 	);
 };

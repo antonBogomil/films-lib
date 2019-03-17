@@ -1,11 +1,11 @@
 import React from 'react';
 import './main.scss';
-import Button from '../../parts/button';
-import TextTypingAnimation from '../../parts/text/textTypingAnimation';
-import Fade from 'react-reveal/Fade';
-import Article from '../../parts/article';
-import '../../../data/data';
-import {data} from '../../../data/data';
+import Button from '../../elements/button';
+import TextTypingAnimation from '../../elements/text/textTypingAnimation';
+import {Fade} from 'react-reveal';
+import Article from '../../elements/article';
+import '../../../fake-backend/data/data';
+import {data} from '../../../fake-backend/data/data';
 import movie1 from './../../../assets/movie1.jpg';
 import movie2 from './../../../assets/movie2.jpg';
 import movie3 from './../../../assets/movie3.jpg';
@@ -31,19 +31,17 @@ const MainPage = () => {
 					Latin derivation that make up a text also known as filler text,
 					fictitious, blind or placeholder</p>
 				<div className='btn-container'>
-					<Button type={'animated'}>
+					<Button variant={'animated'}>
 						Read more
 					</Button>
 				</div>
 			</div>
-			<div>
-				<Fade cascade left>
-					<p>
-						Find movies currently in theaters near you. Sort by critic rating,
-						get movie times, buy tickets and watch trailers and interviews.
-					</p>
-				</Fade>
-			</div>
+			<Fade left>
+				<p>
+					Find movies currently in theaters near you. Sort by critic rating,
+					get movie times, buy tickets and watch trailers and interviews.
+				</p>
+			</Fade>
 			<div>
 				{
 					data.map((item, i) => {
