@@ -2,7 +2,7 @@ import React from 'react';
 import './button.scss';
 import * as PropTypes from 'prop-types';
 
-const Button = ({children, onClick = undefined, type='',icon, href, variant='animated'}) => {
+const Button = ({children, onClick = undefined, type='',icon, href, variant='default'}) => {
 	const className = 'btn ' + variant;
 	if (href) {
 		return (
@@ -20,7 +20,7 @@ const Button = ({children, onClick = undefined, type='',icon, href, variant='ani
 
 
 Button.propTypes = {
-	children: PropTypes.object.isRequired,
+	children: PropTypes.string.isRequired,
 	icon: PropTypes.object,
 	onClick: PropTypes.func,
 	href: PropTypes.string,

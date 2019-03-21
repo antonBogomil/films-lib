@@ -1,5 +1,6 @@
 import {checkAuth} from '../../fake-backend';
 import {HIDE_MODAL} from './modal';
+import {setUserInStorage} from "../../helpers";
 export const LOGIN = 'LOGIN';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
@@ -27,6 +28,7 @@ export const login = (params) => {
 	};
 };
 export const logout = () => {
+	setUserInStorage(null);
 	return dispatch => {
 		dispatch({
 			type: LOGOUT,

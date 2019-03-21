@@ -1,5 +1,10 @@
+import {setUserInStorage} from "../helpers";
+
 const USERNAME = 'admin';
 const PASSWORD = '123';
 export const checkAuth = (params) => {
-	return params.username === USERNAME && params.password === PASSWORD;
+	if (params.username === USERNAME && params.password === PASSWORD){
+        setUserInStorage(params);
+		return true
+	}
 };
