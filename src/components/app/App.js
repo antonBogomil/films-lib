@@ -3,7 +3,7 @@ import './app.scss';
 import Footer from '../footer';
 import {Route, Switch} from 'react-router-dom';
 import MainPage from '../pages/main';
-import List from '../pages/list/List';
+import List from '../pages/list';
 import LoginContainer from '../../containers/LoginContainer';
 import NotFound from '../elements/notFound/NotFound';
 import ModalsContainer from '../../containers/ModalsContainer';

@@ -23,7 +23,6 @@ const Menu = (props) => {
             </li>
 
             <li><Button
-                variant={''}
                 onClick={() => {
                     props.showModal('CONTACT');
                 }}>Contact us</Button></li>
@@ -31,7 +30,6 @@ const Menu = (props) => {
                 {
                     !user ? <Button
                             variant={'filled'}
-
                             onClick={() => {
                                 showModal('LOGIN');
                             }}>

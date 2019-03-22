@@ -4,16 +4,8 @@ import {hideModal, showModal} from '../redux/actions/modal';
 import {withRouter} from 'react-router-dom';
 import {login, logout} from '../redux/actions/auth';
 import React, {Component} from 'react';
-import {getUserFromStorage} from "../helpers";
 
 class MenuContainer extends Component {
-    componentDidMount() {
-        const user = getUserFromStorage();
-        if (user) {
-            this.props.login(user);
-        }
-    }
-
     render() {
         return (
             <Menu {...this.props}/>

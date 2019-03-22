@@ -1,14 +1,10 @@
 import Login from 'components/elements/login';
 import {connect} from 'react-redux';
 import {Component} from 'react';
-import {login} from '../redux/actions/auth';
-import {getUserFromStorage} from "../helpers";
+import {login} from 'redux/actions/auth';
 import React from "react";
 
 class LoginContainer extends Component {
-    componentDidMount() {
-
-    }
     render() {
         return (<Login {...this.props}/>)
     }

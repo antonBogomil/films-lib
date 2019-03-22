@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Button from '../button';
 import Input from '../input/Input';
 import './login.scss';
-import {setUserInStorage} from "../../../helpers";
 
 class Login extends React.Component {
 	state = {

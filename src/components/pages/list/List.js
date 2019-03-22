@@ -1,7 +1,7 @@
 import React from 'react';
 import * as T from "prop-types";
 
-const List = (data) => {
+export const List = ({data=[]}) => {
     return (
         <div className='page-list-container'>
             {
@@ -12,9 +12,6 @@ const List = (data) => {
         </div>
     );
 };
-List.propTypes = {
-    data: T.array.isRequired,
-};
 const ListItem = ({item}) => {
     return (
         <div className='list_item'>
@@ -22,4 +19,10 @@ const ListItem = ({item}) => {
         </div>
     )
 };
-export default List;
+List.propTypes = {
+    data: T.array
+};
+ListItem.propTypes = {
+    item: T.object.isRequired
+};
+
