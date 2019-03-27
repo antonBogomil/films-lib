@@ -8,6 +8,10 @@ export default {
         return _httpReq(url, params)
     }
 };
+
+
+
+
 const _httpReq = (url, params) => fetch(`${API_BASE_URL}/${url}`, params)
     .then(res => {
         console.log(res);

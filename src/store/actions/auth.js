@@ -1,16 +1,13 @@
 import {checkAuth} from 'fake-backend';
 import {HIDE_MODAL} from './modal';
 import {setUserInStorage} from "helpers";
-
-export const LOGIN = 'LOGIN';
-export const LOGIN_FAIL = 'LOGIN_FAIL';
-export const LOGOUT = 'LOGOUT';
+import {userActionTypes} from "store/types";
 export const login = (params) => {
     return dispatch => {
         if (checkAuth(params)) {
             setUserInStorage(params);
             dispatch({
-                type: LOGIN,
+                type: userActionTypes.LOGIN,
                 payload: {
                     name: params.username,
                 }
@@ -20,7 +17,7 @@ export const login = (params) => {
             });
         } else {
             dispatch({
-                type: LOGIN_FAIL,
+                type: userActionTypes.LOGIN_FAIL,
                 payload: {
                     message: 'Incorrect username or password entered. Please try again.'
                 }
@@ -32,7 +29,7 @@ export const logout = () => {
     setUserInStorage();
     return dispatch => {
         dispatch({
-            type: LOGOUT,
+            type: userActionTypes.LOGOUT,
             payload: {}
         });
     };

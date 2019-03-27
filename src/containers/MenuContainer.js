@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
-import Menu from '../components/elements/menu/Menu';
-import {hideModal, showModal} from '../redux/actions/modal';
+import Menu from 'components/elements/menu/Menu';
+import {hideModal, showModal} from 'store/actions/modal';
 import {withRouter} from 'react-router-dom';
-import {login, logout} from '../redux/actions/auth';
+import {login, logout} from 'store/actions/auth';
 import React, {Component} from 'react';
 
 class MenuContainer extends Component {

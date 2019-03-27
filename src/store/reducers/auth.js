@@ -1,4 +1,4 @@
-import {LOGIN, LOGIN_FAIL, LOGOUT} from '../actions/auth';
+import {userActionTypes} from '../types';
 
 const initialState = {
 	user: undefined,
@@ -7,17 +7,17 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case LOGIN:
+		case userActionTypes.LOGIN:
 			return {
 				user: {
 					name: action.payload.name,
 				}
 			};
-		case LOGOUT :
+		case userActionTypes.LOGOUT :
 			return {
 				user: undefined
 			};
-		case LOGIN_FAIL: {
+		case userActionTypes.LOGIN_FAIL: {
 			return {
 				errorMessage: action.payload.message
 			};

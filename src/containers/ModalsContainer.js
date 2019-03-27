@@ -1,13 +1,14 @@
 import Modal from 'components/elements/modal/Modal';
 import {connect} from 'react-redux';
-import LoginContainer from './LoginContainer';
+// import LoginContainer from './LoginContainer';
 import React from 'react';
-import {hideModal} from '../redux/actions/modal';
+import {hideModal} from 'store/actions/modal';
+import SignForm from "../components/elements/sign-form/SignForm";
 
 const modalBody = (modalType) => {
 	switch (modalType) {
 		case 'LOGIN':
-			return <LoginContainer/>;
+			return <SignForm/>;
 		case 'CONTACT':
 			return <h5>This is contact form</h5>;
 		default:

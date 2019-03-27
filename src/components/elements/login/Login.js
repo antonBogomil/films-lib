@@ -29,7 +29,7 @@ class Login extends React.Component {
 		return (
 			<div className='login-container'>
 				{error && <p>{error}</p>}
-				<form >
+
 					<div>
 						<Input type='text' placeholder={'username'} value={username} onChange={(e) => {
 							this.handleChange(e, 'username');
@@ -40,8 +40,8 @@ class Login extends React.Component {
 							this.handleChange(e, 'password');
 						}}/>
 					</div>
-					<Button onClick={(e) => {this.handleSubmit(e)}} variant={'small'}>Log in</Button>
-				</form>
+					<Button onClick={(e) => {this.handleSubmit(e)}} variant={'filled'}>Log in</Button>
+
 			</div>
 		);
 	}

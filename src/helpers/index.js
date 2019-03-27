@@ -1,6 +1,6 @@
 import {USER_STORAGE} from "../constants";
 import store from 'store';
-import {login} from "redux/actions/auth";
+import {login} from "store/actions/auth";
 const _setStorage = (name, value) => {
     if (name && value) {
         localStorage.setItem(name, value);
