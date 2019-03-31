@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Redirect} from 'react-router-dom';
 import Button from '../button';
-import {connect} from 'react-redux';
 import Input from '../input/Input';
 import './login.scss';
+import ErrorCatch, {ErrorIndicator} from '../error';
 
 class Login extends React.Component {
 	state = {
@@ -14,7 +13,7 @@ class Login extends React.Component {
 	handleSubmit = e => {
 		e.preventDefault();
 		const {username, password} = this.state;
-		this.props.logIn({username, password});
+		this.props.login({username, password});
 	};
 
 	handleChange = (e, name) => {
@@ -26,12 +25,12 @@ class Login extends React.Component {
 	};
 
 	render() {
-		const {location, errorMsg} = this.props;
+		const {location, error, login} = this.props;
 		const {username, password,} = this.state;
 		return (
-			<div className='login-container'>
-				{errorMsg && <p>{errorMsg}</p>}
-				<form onSubmit={this.handleSubmit}>
+			<form>
+				<div className='login-container'>
+					{error && <ErrorIndicator>{error}</ErrorIndicator>}
 					<div>
 						<Input type='text' placeholder={'username'} value={username} onChange={(e) => {
 							this.handleChange(e, 'username');
@@ -42,15 +41,18 @@ class Login extends React.Component {
 							this.handleChange(e, 'password');
 						}}/>
 					</div>
-					<Button type="submit" variant={'small'}>Log in</Button>
-				</form>
-			</div>
+					<Button onClick={(e) => {
+						this.handleSubmit(e);
+					}} variant={'filled'}>Log in</Button>
+
+				</div>
+			</form>
 		);
 	}
 }
 
 Login.propTypes = {
-	logIn: PropTypes.func.isRequired,
-	errorMessage: PropTypes.string,
+	login: PropTypes.func.isRequired,
+	error: PropTypes.string,
 };
 export default Login;

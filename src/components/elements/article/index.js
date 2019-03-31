@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './article.scss';
-import {Fade} from 'react-reveal';
+import {Fade, Zoom} from 'react-reveal';
 
 const Article = ({imgSrc, title, text, type}) => {
 	return (
 		<article className={`article ${type}`}>
-			<div className='article-image'>
-				<img alt={title} src={imgSrc}/>
-			</div>
+			<Zoom>
+				<div className='article-image'>
+					<img alt={title} src={imgSrc}/>
+				</div>
+			</Zoom>
 			<div className='article-text'>
 				<Fade left>
 					<h4>{title}</h4>

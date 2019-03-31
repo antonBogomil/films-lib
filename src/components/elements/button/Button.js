@@ -1,8 +1,9 @@
 import React from 'react';
 import './button.scss';
 import * as PropTypes from 'prop-types';
+import {NavLink} from 'react-router-dom';
 
-const Button = ({children, onClick, type, href, variant}) => {
+const Button = ({children, onClick, icon, href, to, variant = 'default', type = 'submit'}) => {
 	const className = 'btn ' + variant;
 	if (href) {
 		return (
@@ -10,19 +11,28 @@ const Button = ({children, onClick, type, href, variant}) => {
 				{children}
 			</a>
 		);
+
+	}
+	if (to) {return(
+			<NavLink to={to} exact activeClassName='active'>
+				{children}
+			</NavLink>);
 	} else {
 		return (
 			<button onClick={onClick} type={type} className={className}>
-				{children}
+				<span>{children}</span>
+				{icon && <span className={'btn-icon'}>{icon}</span>}
 			</button>
 		);
 	}
 };
+
 Button.propTypes = {
 	children: PropTypes.string.isRequired,
+	icon: PropTypes.object,
 	onClick: PropTypes.func,
 	href: PropTypes.string,
 	type: PropTypes.oneOf(['submit', 'reset']),
-	variant: PropTypes.oneOf(['animated', 'small','filled']),
+	variant: PropTypes.oneOf(['animated', 'small', 'filled']),
 };
 export default Button;

@@ -1,33 +1,62 @@
 @import "../../../styles/constants";
-.btn{
+
+.btn {
   padding: 8px 20px;
   display: inline-block;
   font-size: 14px;
   text-align: center;
-  border: 2px solid $color-primary-light;
-  transition: .3s all ease;
-  background: transparent;
+  transition: all .3s ease;
   cursor: pointer;
+  border: none;
   font-weight: 400;
-  color: $color-secondary-main;
-  &:hover{
-    color: #fff;
+  background-color: $color-secondary-main;
+  color: #fff;
+  &:focus{
+    outline: none;
   }
-  &.filled{
-    color: #fff;
-    background:$gradient-main;
+  span {
+    transition: all .3s ease;
+  }
+  .btn-icon {
+    color: inherit;
+    margin-left: 12px;
+    line-height: 100%;
   }
 
-  &.animated{
-    padding: 15px 30px;
+  &:hover {
+    color: rgba(255, 255, 255, 0.84);
+    span {
+      color: rgba(255, 255, 255, 0.85);
+    }
+  }
+
+  &.filled {
     color: #fff;
+    background: $gradient-main;
+    box-sizing: border-box;
+    border: 1px solid $color-secondary-main;
+    &:hover {
+      background: #fff;
+      color: $color-secondary-main;
+      //border: 1px solid $color-secondary-main;
+      & span {
+        color: $color-secondary-main;
+      }
+    }
+  }
+  &.animated {
+    padding: 15px 30px;
+    color: $color-secondary-main;
     font-size: 1em;
     border: none;
-    background: $color-primary-light ;
+    background: #fff;
     position: relative;
     z-index: 2;
     transition: all .3s ease;
-    &:after{
+    & span{
+      color: $color-secondary-main;
+    }
+    &:after {
       position: absolute;
       left: 0;
       bottom: 0;
@@ -35,13 +64,16 @@
       height: 100%;
       z-index: -1;
       width: 0;
-
       background: $gradient-main;
       transition: all .3s ease;
     }
   }
-  &.animated:hover{
-    &:after{
+
+  &.animated:hover {
+    & span{
+      color: #fff;
+    }
+    &:after {
       width: 100%;
     }
   }
