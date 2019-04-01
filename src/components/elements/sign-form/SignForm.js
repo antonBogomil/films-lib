@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import style from './sign-form.module.scss';
 import classNames from 'classnames';
-import * as T from "prop-types";
 import Button from "../button/Button";
-import LoginContainer from "../../../containers/LoginContainer";
-
+import LoginContainer from "containers/LoginContainer";
 class SignForm extends Component {
     state = {
         active: 'signIn'
@@ -23,6 +21,7 @@ class SignForm extends Component {
                 <div className={style.formContainer}>
                     {
                         active === 'signUp' ?
+
                             <div className={classNames(style.form, style.form_up)}>
                                 <form action="#">
                                     <h4>Create Account</h4>
