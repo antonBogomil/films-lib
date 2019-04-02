@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ERROR} from 'const';
+import {ERROR} from 'const/errors';
 import errorImg from 'assets/burp.gif';
 import './error.scss';
 export default class ErrorCatch extends Component {

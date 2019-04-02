@@ -5,7 +5,7 @@ import Button from '../button';
 import IconExit from 'react-icons/lib/md/exit-to-app';
 
 const Menu = (props) => {
-	const {showModal, user, logout} = props;
+	const { isAuth, logout} = props;
 	return (
 		<ul className='menu'>
 			<li>
@@ -14,7 +14,7 @@ const Menu = (props) => {
 			<li>
 				<NavLink activeClassName='active' exact to="/films">Films</NavLink>
 			</li>
-			{user &&
+			{isAuth &&
 			<li>
 				<NavLink activeClassName='active' exact to="/profile">Profile</NavLink>
 			</li>

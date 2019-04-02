@@ -1,18 +1,21 @@
-// import {API_BASE_URL} from '../const';
 import axios from 'axios';
+
+const BASE_URL = '/api';
 export const api = {
-	createUser: function (user, callback) {
-		axios.post('/users/register', user)
-			.then((res) => {
-				return res
-			})
-			.then((json) => {
-				console.log(json);
-				callback(json);
-			})
-			.catch((e)=>{
-				console.log(e);
-				return false
-			})
+	post: (url, data) => {
+		const json = data;
+		const config = {
+			method: 'POST',
+			url: BASE_URL + url,
+			headers: { 'content-type': 'application/json' },
+			data: json
+		};
+		return axios(config).catch(errorCatch);
 	},
+	get: (url) => {
+		return axios.get(BASE_URL + url).catch(errorCatch);
+	}
+};
+const errorCatch = (e) => {
+	console.log(e);
 };

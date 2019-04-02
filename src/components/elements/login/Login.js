@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import Button from '../button';
 import Input from '../input/Input';
 import './login.scss';
-import ErrorCatch, {ErrorIndicator} from '../error';
+import {ErrorIndicator} from '../error';
 
 class Login extends React.Component {
 	state = {
-		username: '',
+		email: '',
 		password: '',
 	};
 	handleSubmit = e => {
 		e.preventDefault();
-		const {username, password} = this.state;
-		this.props.login({username, password});
+		const {email, password} = this.state;
+		this.props.login({email, password});
 	};
 
 	handleChange = (e, name) => {
@@ -25,15 +25,15 @@ class Login extends React.Component {
 	};
 
 	render() {
-		const {location, error, login} = this.props;
-		const {username, password,} = this.state;
+		const { error} = this.props;
+		const {email, password,} = this.state;
 		return (
 			<form>
 				<div className='login-container'>
 					{error && <ErrorIndicator>{error}</ErrorIndicator>}
 					<div>
-						<Input type='text' placeholder={'username'} value={username} onChange={(e) => {
-							this.handleChange(e, 'username');
+						<Input type='email' placeholder={'email'} value={email} onChange={(e) => {
+							this.handleChange(e, 'email');
 						}}/>
 					</div>
 					<div>

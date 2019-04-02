@@ -1,6 +1,5 @@
 import React from 'react';
 import './input.scss';
-import * as PropTypes from 'prop-types';
 
 const Input = ({value,placeholder,type,onChange}) => {
 	return (

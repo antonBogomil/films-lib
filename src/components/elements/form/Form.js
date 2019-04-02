@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import * as T from 'prop-types';
 import {FORM} from '../../../const';
 import Button from '../button';

@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
-import Menu from 'components/elements/menu/Menu';
+import Menu from "components/elements/menu/Menu";
 import {hideModal, showModal} from 'store/actions/modal';
 import {withRouter} from 'react-router-dom';
-import {login, logout} from 'store/actions/auth';
+import {logout} from 'store/actions/auth';
 import React, {Component} from 'react';
 
 class MenuContainer extends Component {
@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => ({
 });
 const mapStateToProps = (state) => {
     return {
-        user: state.auth.user
+		isAuth: state.auth.isAuth
     };
 };
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MenuContainer));

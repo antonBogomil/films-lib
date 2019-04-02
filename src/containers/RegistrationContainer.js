@@ -2,6 +2,7 @@ import {FIELD} from '../const';
 import React, {Component} from 'react';
 import Form from '../components/elements/form';
 import {api} from 'api';
+import {API_REGISTER} from '../const/api';
 
 class RegistrationContainer extends Component {
 	state = {
@@ -23,17 +24,44 @@ class RegistrationContainer extends Component {
 	};
 	handleSubmit = (e) => {
 		e.preventDefault();
-		if (this.validation(this.state)===false) return false;
-		this.props.setSending(true);
+		if (this.validation(this.state) === false) return false;
 		const {fullName, email, password} = this.state;
 		const userData = {
 			name: fullName,
 			email: email,
 			password: password
 		};
-		api.createUser(userData,(success)=>{
-			this.props.setSending(false);
+		this.createUser(userData);
+	};
+	createUser = (data) => {
+		this.props.setStatus({
+			created: false,
+			sending: true,
 		});
+		/*Timer for test DELETE THIS*/
+		setTimeout(() => {
+			api.post(API_REGISTER, data)
+				.then((res) => {
+					if (res.data.success) {
+						this.props.setStatus({
+							created: true,
+							sending: false,
+						});
+					}
+					else {
+						this.props.setStatus({
+							created: false,
+							sending: false,
+						});
+					}
+				})
+				.catch((e) => {
+					this.props.setStatus({
+						created: false,
+						sending: false,
+					});
+				});
+		},400)
 	};
 
 	render() {

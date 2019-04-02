@@ -9,18 +9,19 @@ import Preloader from '../../elements/preloader';
 class Sign extends Component {
 	state = {
 		active: 'signIn',
-		sending: null,
+		status: {
+			created: false,
+			sending: false
+		}
 	};
 
-	setSending = (isSending) => {
-		if (isSending === false) {
+	setStatus = (status) => {
+		this.setState({
+			status: status
+		});
+		if (status.created) {
 			this.setState({
-				sending: isSending,
-				active: 'signIn',
-			});
-		} else {
-			this.setState({
-				sending: isSending
+				active: 'signIn'
 			});
 		}
 	};
@@ -32,16 +33,16 @@ class Sign extends Component {
 	};
 
 	render() {
-		const {active, sending} = this.state;
+		const {active, status: {sending, created}} = this.state;
 		return (
 			<div className={style.container}>
 				<div className={style.formContainer}>
-					<div key={1} className={classNames(style.form, style.form_up)}>
+					{created === false && (<div key={1} className={classNames(style.form, style.form_up)}>
 						<h3 className={style.c2}>Create Account</h3>
 						{
-							sending === true ? <Preloader/> : <RegistrationContainer setSending={this.setSending}/>
+							sending ? <Preloader size='m'/> : <RegistrationContainer setStatus={this.setStatus}/>
 						}
-					</div>
+					</div>)}
 					<div key={2} className={classNames(style.form, style.form_in)}>
 						<h3 className={style.c2}>Sign in</h3>
 						<LoginContainer/>
@@ -66,20 +67,26 @@ class Sign extends Component {
 								</div>
 							</div>
 							:
-							<div className={classNames(style.overlaySignIn)}>
-								<h3 className={style.c1}>Hello, Friend!</h3>
-								<p>Enter your personal details and start journey with us</p>
-								<div className={style.btnContainer}>
-									<Button
-										onClick={() => {
-											this.handleChangeActive('signUp');
-										}}
-										variant={'animated'}
-									>
-										Sign up
-									</Button>
+							(created ?
+								<div className={classNames(style.overlaySignIn)}>
+									<h3 className={style.c1}>Account created! Login please.</h3>
 								</div>
-							</div>
+								:
+								<div className={classNames(style.overlaySignIn)}>
+									<h3 className={style.c1}>Hello, Friend!</h3>
+									<p>Enter your personal details and start journey with us</p>
+									<div className={style.btnContainer}>
+										<Button
+											onClick={() => {
+												this.handleChangeActive('signUp');
+											}}
+											variant={'animated'}
+										>
+											Sign up
+										</Button>
+									</div>
+								</div>)
+
 					}
 				</div>
 			</div>
