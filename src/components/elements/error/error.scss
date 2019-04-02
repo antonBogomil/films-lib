@@ -1,4 +1,13 @@
-@import "../../../styles/constants";
+@import "styles/constants.scss";
 .error-indicator{
-  color: red
+  color: red;
+  font-size: 14px;
+  font-weight: bold;
+}
+.error-container{
+  margin: auto;
+  width: 80%;
+  padding: 10%;
+  text-align: center;
+  box-sizing: border-box;
 }

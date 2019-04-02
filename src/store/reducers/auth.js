@@ -1,21 +1,19 @@
 import {userActionTypes} from '../types';
 
 const initialState = {
-	user: undefined,
 	errorMessage: undefined,
+	isAuth: false,
 };
 
 const authReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case userActionTypes.LOGIN:
 			return {
-				user: {
-					name: action.payload.name,
-				}
+				isAuth: true
 			};
 		case userActionTypes.LOGOUT :
 			return {
-				user: undefined
+				isAuth: false
 			};
 		case userActionTypes.LOGIN_FAIL: {
 			return {

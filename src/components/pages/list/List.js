@@ -1,6 +1,5 @@
 import React from 'react';
 import * as T from "prop-types";
-
 export const List = ({data=[]}) => {
     return (
         <div className='page-list-container'>

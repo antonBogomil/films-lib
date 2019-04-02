@@ -1,0 +1,66 @@
+@import "../../../styles/constants";
+
+.container {
+  width: 100%;
+  height: 100vh;
+}
+.fullHeight{
+  position: relative;
+  height: 100vh;
+}
+h3.c1 {
+  color: #fff;
+}
+
+h3.c2 {
+  color: $color-secondary-main;
+}
+
+.formContainer {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+}
+
+.form {
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 100px;
+  position: absolute;
+  text-align: center;
+}
+
+.form_in {
+  left: 0;
+}
+
+.form_up {
+  right: 0;
+}
+
+.overlay {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  right: 0;
+  left: 50%;
+  top: 0;
+  position: absolute;
+  transition: .7s ease;
+  background-color: $color-secondary-main;
+
+  &.signIn {
+    right: 0;
+    left: 50%;
+
+  }
+
+  &.signUp {
+    left: 0;
+    right: 50%;
+  }
+}
+

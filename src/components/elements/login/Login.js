@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../button';
 import Input from '../input/Input';
 import './login.scss';
+import ErrorCatch, {ErrorIndicator} from '../error';
 
 class Login extends React.Component {
 	state = {
@@ -24,12 +25,12 @@ class Login extends React.Component {
 	};
 
 	render() {
-		const {location, error,login} = this.props;
+		const {location, error, login} = this.props;
 		const {username, password,} = this.state;
 		return (
-			<div className='login-container'>
-				{error && <p>{error}</p>}
-
+			<form>
+				<div className='login-container'>
+					{error && <ErrorIndicator>{error}</ErrorIndicator>}
 					<div>
 						<Input type='text' placeholder={'username'} value={username} onChange={(e) => {
 							this.handleChange(e, 'username');
@@ -40,9 +41,12 @@ class Login extends React.Component {
 							this.handleChange(e, 'password');
 						}}/>
 					</div>
-					<Button onClick={(e) => {this.handleSubmit(e)}} variant={'filled'}>Log in</Button>
+					<Button onClick={(e) => {
+						this.handleSubmit(e);
+					}} variant={'filled'}>Log in</Button>
 
-			</div>
+				</div>
+			</form>
 		);
 	}
 }

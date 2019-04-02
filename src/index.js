@@ -11,9 +11,7 @@ checkUserFromStorage();
 ReactDOM.render(
 	<ErrorCatch>
 		<Provider store={store}>
-			<BrowserRouter>
-				<App/>
-			</BrowserRouter>
+			<App/>
 		</Provider>
 	</ErrorCatch>,
 	document.getElementById('root')

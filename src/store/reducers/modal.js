@@ -1,8 +1,8 @@
 import {HIDE_MODAL, SHOW_MODAL} from '../actions/modal';
 /*Test state  need to reset!!!! type:null , open: false*/
 const initialState = {
-	type: 'LOGIN',
-	open: true
+	type: null,
+	open: false
 };
 
 export default (state = initialState, action) => {

@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 import './header.scss';
 import MenuContainer from 'containers/MenuContainer';
 
-const Header = (props) => {
+const Header = ({menu}) => {
 	return (
 		<header className='main-header'>
 			<div className='wrapper'>
@@ -18,7 +18,7 @@ const Header = (props) => {
 						</NavLink>
 					</div>
 					<div className='right-item'>
-						<MenuContainer/>
+						{menu}
 					</div>
 				</div>
 			</div>
