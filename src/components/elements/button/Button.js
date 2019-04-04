@@ -3,28 +3,31 @@ import './button.scss';
 import * as PropTypes from 'prop-types';
 import {NavLink} from 'react-router-dom';
 
-const Button = ({children, onClick, icon, href, to, variant = 'default', type = 'submit'}) => {
+const Button = ({children, onClick,loading=false, icon, href, to, variant = 'default', type = 'submit'}) => {
 	const className = 'btn ' + variant;
-	if (href) {
-		return (
-			<a href={href} className={className}>
-				{children}
-			</a>
-		);
+	if (loading===false){
+		if (href) {
+			return (
+				<a href={href} className={className}>
+					{children}
+				</a>
+			);
 
-	}
-	if (to) {return(
+		}
+		if (to) {return(
 			<NavLink to={to} exact activeClassName='active'>
 				{children}
 			</NavLink>);
-	} else {
-		return (
-			<button onClick={onClick} type={type} className={className}>
-				<span>{children}</span>
-				{icon && <span className={'btn-icon'}>{icon}</span>}
-			</button>
-		);
+		} else {
+			return (
+				<button onClick={onClick} type={type} className={className}>
+					<span>{children}</span>
+					{icon && <span className={'btn-icon'}>{icon}</span>}
+				</button>
+			);
+		}
 	}
+
 };
 
 Button.propTypes = {

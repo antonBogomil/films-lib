@@ -1,12 +1,11 @@
 import Modal from 'components/elements/modal/Modal';
 import {connect} from 'react-redux';
-// import LoginContainer from './LoginContainer';
 import React from 'react';
 import {hideModal} from 'store/actions/modal';
 
 const modalBody = (modalType) => {
 	switch (modalType) {
-		case 'CONTACT':
+		case modalType.CONTACT:
 			return <h5>This is contact form</h5>;
 		default:
 			return <span>EMPTY modal</span>;

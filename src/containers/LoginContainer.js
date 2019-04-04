@@ -13,12 +13,12 @@ class LoginContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         user: state.auth.user,
-        error: state.auth.errorMessage
+        error: state.auth.errorMessage,
     };
 };
 const mapDispatchToProps = dispatch => ({
-    login: (params) => {
-        return dispatch(login(params))
+    login: (params,cb) => {
+        return dispatch(login(params,cb))
     },
 
 });

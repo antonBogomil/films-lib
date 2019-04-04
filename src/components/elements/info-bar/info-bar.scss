@@ -1,0 +1,66 @@
+@import "styles/constants.scss";
+
+#infobar-root {
+  max-width: 200px;
+  overflow: hidden;
+  height: 0;
+}
+
+.info-bar {
+  position: fixed;
+  left: 0;
+  bottom: 100px;
+  background-color: #3f4046;
+  transition: all .3s ease;
+  animation-delay: .1s;
+  opacity: 0;
+  transform: translateX(-100%);
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  &.show {
+    transform: translateX(0);
+    opacity: 1;
+    .info-btn-container{
+      opacity: 1;
+    }
+  }
+  .info-dialog-inner{
+    padding: 50px 15px;
+    position: relative;
+    .info-text{
+      color: #fff;
+      height: 20px;
+      font-size: 14px;
+    }
+  }
+  .info-btn-container {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    transition: all .3s ease;
+    transition-delay: .3s;
+    opacity: 0;
+    .info-btn-close {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      span {
+        width: 20px;
+        height: 2px;
+        position: absolute;
+        display: inline-block;
+        background-color: #fff;
+      }
+      span:first-of-type{
+        transform: rotate(-45deg);
+      }
+      span:last-of-type{
+        transform: rotate(45deg)
+      }
+    }
+  }
+
+
+}

@@ -3,6 +3,9 @@ import React, {Component} from 'react';
 import Form from '../components/elements/form';
 import {api} from 'api';
 import {API_REGISTER} from '../const/api';
+import {infoShow} from '../store/actions/info';
+import store from 'store';
+import {ERROR} from '../const/errors';
 
 class RegistrationContainer extends Component {
 	state = {
@@ -38,30 +41,27 @@ class RegistrationContainer extends Component {
 			created: false,
 			sending: true,
 		});
-		/*Timer for test DELETE THIS*/
 		setTimeout(() => {
-			api.post(API_REGISTER, data)
-				.then((res) => {
-					if (res.data.success) {
-						this.props.setStatus({
-							created: true,
-							sending: false,
-						});
-					}
-					else {
-						this.props.setStatus({
-							created: false,
-							sending: false,
-						});
-					}
-				})
-				.catch((e) => {
+			api.post(API_REGISTER, data, (data) => {
+				if (data.exist) {
+					store.dispatch(infoShow(ERROR.USER_EXIST));
 					this.props.setStatus({
 						created: false,
 						sending: false,
 					});
-				});
-		},400)
+				} else if (data.success) {
+					this.props.setStatus({
+						created: true,
+						sending: false,
+					});
+				} else {
+					this.props.setStatus({
+						created: false,
+						sending: false,
+					});
+				}
+			});
+		}, 400);
 	};
 
 	render() {

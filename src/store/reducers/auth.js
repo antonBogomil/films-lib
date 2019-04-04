@@ -17,6 +17,7 @@ const authReducer = (state = initialState, action) => {
 			};
 		case userActionTypes.LOGIN_FAIL: {
 			return {
+				isAuth: false,
 				errorMessage: action.payload.message
 			};
 		}

@@ -14,7 +14,7 @@ class SecureContainer extends Component {
 }
 const mapStateToProps = (state)=>{
 	return {
-		isAuth: state.auth.isAuth
+		isAuth: state.auth.isAuth,
 	}
 };
 const mapDispatchToProps = dispatch =>{

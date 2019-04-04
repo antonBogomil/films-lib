@@ -19,7 +19,7 @@ const Form = ({param, values, onChange, onSubmit, onClear}) => {
 									   value={values[field.name]}
 									   placeholder={field.placeholder}
 									   name={field.name}
-									   // required={true}
+									   required={true}
 								/>
 							</label>
 						</div>

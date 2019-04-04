@@ -2,14 +2,12 @@
 .modal-dialog{
   position: fixed;
   z-index: 1000;
-  //display: flex;
-  //align-items: center;
-  //justify-content: center;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(27, 29, 36, 0.63);
+  text-align: center;
   .modal-dialog-inner{
     height: 100%;
     background-color: $color-primary-dark;
