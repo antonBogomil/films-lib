@@ -7,7 +7,7 @@ import List from './pages/list';
 import Footer from './footer';
 import ModalsContainer from '../containers/ModalsContainer';
 import ErrorPage from './pages/error/ErorrPage';
-import {ERROR} from '../const/errors';
+import {ERROR} from '../const/Constants';
 
 const Private = () => {
 	return (

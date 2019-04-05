@@ -1,5 +1,4 @@
 import {infoActionTypes} from '../types';
-
 const initialState = {
 	message: null,
 	type: null,

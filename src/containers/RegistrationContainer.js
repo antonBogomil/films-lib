@@ -1,21 +1,29 @@
-import {FIELD} from '../const';
+import {DICTIONARY, FIELD} from '../const/Constants';
 import React, {Component} from 'react';
 import Form from '../components/elements/form';
 import {api} from 'api';
-import {API_REGISTER} from '../const/api';
+import {API_REGISTER, ERROR} from 'const/Constants';
 import {infoShow} from '../store/actions/info';
 import store from 'store';
-import {ERROR} from '../const/errors';
+import Button from '../components/elements/button/Button';
+import Preloader from '../components/elements/preloader';
 
 class RegistrationContainer extends Component {
 	state = {
-		fullName: '',
-		email: '',
-		password: '',
+		user: {
+			fullName: '',
+			email: '',
+			password: '',
+		},
+		loading: false
 	};
 	handleChange = name => e => {
 		this.setState({
-			[name]: e.target.value
+			...this.state,
+			user: {
+				...this.state.user,
+				[name]: e.target.value
+			}
 		});
 	};
 	validation = (user) => {
@@ -27,8 +35,8 @@ class RegistrationContainer extends Component {
 	};
 	handleSubmit = (e) => {
 		e.preventDefault();
-		if (this.validation(this.state) === false) return false;
-		const {fullName, email, password} = this.state;
+		if (this.validation(this.state.user) === false) return false;
+		const {user: {fullName, email, password}} = this.state;
 		const userData = {
 			name: fullName,
 			email: email,
@@ -37,38 +45,37 @@ class RegistrationContainer extends Component {
 		this.createUser(userData);
 	};
 	createUser = (data) => {
-		this.props.setStatus({
-			created: false,
-			sending: true,
+		this.setState({
+			...this.state,
+			loading: true
 		});
 		setTimeout(() => {
 			api.post(API_REGISTER, data, (data) => {
-				if (data.exist) {
-					store.dispatch(infoShow(ERROR.USER_EXIST));
+				if (data && data.success) {
 					this.props.setStatus({
-						created: false,
-						sending: false,
-					});
-				} else if (data.success) {
-					this.props.setStatus({
-						created: true,
-						sending: false,
-					});
-				} else {
-					this.props.setStatus({
-						created: false,
-						sending: false,
+						created: true
 					});
 				}
+				this.setState({
+					...this.state,
+					loading: false
+				});
 			});
 		}, 400);
 	};
 
 	render() {
+		const {loading} = this.state;
 		return (
 			<div className='reg-form-container'>
-				<Form param={registrationFormConfig} values={this.state} onSubmit={this.handleSubmit}
-					  onChange={this.handleChange}/>
+				{loading ? <Preloader size='l'/> :
+					<Form param={registrationFormConfig} values={this.state.user} onSubmit={this.handleSubmit}
+						  onChange={this.handleChange} submitBtn={
+						<Button type={'submit'}>
+							{DICTIONARY.SEND}
+						</Button>
+					}/>}
+
 			</div>
 		);
 	}

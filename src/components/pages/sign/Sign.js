@@ -10,8 +10,7 @@ class Sign extends Component {
 	state = {
 		active: 'signIn',
 		status: {
-			created: false,
-			sending: false
+			created: false
 		}
 	};
 
@@ -33,14 +32,14 @@ class Sign extends Component {
 	};
 
 	render() {
-		const {active, status: {sending, created}} = this.state;
+		const {active, status: {created}} = this.state;
 		return (
 			<div className={style.container}>
 				<div className={style.formContainer}>
 					{created === false && (<div key={1} className={classNames(style.form, style.form_up)}>
 						<h3 className={style.c2}>Create Account</h3>
 						{
-							sending ? <Preloader size='m'/> : <RegistrationContainer setStatus={this.setStatus}/>
+							<RegistrationContainer setStatus={this.setStatus}/>
 						}
 					</div>)}
 					<div key={2} className={classNames(style.form, style.form_in)}>

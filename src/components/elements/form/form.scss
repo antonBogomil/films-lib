@@ -3,23 +3,35 @@
 .form {
   max-width: 300px;
   margin: auto;
+
   p {
     color: inherit;
   }
 }
-.field-container{
+
+.field-container {
   text-align: left;
   margin: 10px 0;
+
+  &.invalid {
+    .field {
+      color: red;
+    }
+  }
 }
+
 .field {
   width: 100%;
   padding: 12px;
   box-sizing: border-box;
+  color: $color-primary-main;
   outline: none;
   background: none;
-  border: 1px solid $color-secondary-main;
-  color: $color-secondary-main;
+  border: 3px solid $color-secondary-main;
 }
-.field:focus{
+
+.field:focus {
 
 }
+
+

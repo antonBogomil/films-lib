@@ -22,6 +22,7 @@ export const api = {
 				}
 			})
 			.catch((e) => {
+				callback();
 				store.dispatch(infoShow(e.message))
 			});
 	},
@@ -36,6 +37,7 @@ export const api = {
 				}
 			})
 			.catch((e) => {
+				callback();
 				store.dispatch(infoShow(e.message))
 			});
 	}

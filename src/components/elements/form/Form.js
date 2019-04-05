@@ -1,9 +1,9 @@
 import React from 'react';
 import * as T from 'prop-types';
-import {FORM} from '../../../const';
+import {FORM} from '../../../const/Constants';
 import Button from '../button';
 import './form.scss'
-const Form = ({param, values, onChange, onSubmit, onClear}) => {
+const Form = ({param, values, onChange, onSubmit, onClear,submitBtn}) => {
 	return (
 		<form className='form' onSubmit={onSubmit}>
 			{
@@ -26,9 +26,9 @@ const Form = ({param, values, onChange, onSubmit, onClear}) => {
 					);
 				})
 			}
-			<Button>
-				Submit
-			</Button>
+			<div>
+				{submitBtn}
+			</div>
 		</form>
 	);
 };

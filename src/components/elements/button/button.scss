@@ -1,4 +1,4 @@
-@import "../../../styles/constants";
+@import "styles/constants.scss";
 
 .btn {
   padding: 8px 20px;
@@ -7,16 +7,19 @@
   text-align: center;
   transition: all .3s ease;
   cursor: pointer;
-  border: none;
   font-weight: 400;
   background-color: $color-secondary-main;
   color: #fff;
-  &:focus{
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  &:focus {
     outline: none;
   }
+
   span {
     transition: all .3s ease;
   }
+
   .btn-icon {
     color: inherit;
     margin-left: 12px;
@@ -24,9 +27,11 @@
   }
 
   &:hover {
-    color: rgba(255, 255, 255, 0.84);
+    background-color: #fff;
+    color: $color-secondary-main;
+    border: 2px solid $color-secondary-main;
     span {
-      color: rgba(255, 255, 255, 0.85);
+      color: $color-secondary-main;
     }
   }
 
@@ -35,6 +40,7 @@
     background: $gradient-main;
     box-sizing: border-box;
     border: 1px solid $color-secondary-main;
+
     &:hover {
       background: #fff;
       color: $color-secondary-main;
@@ -44,6 +50,7 @@
       }
     }
   }
+
   &.animated {
     padding: 15px 30px;
     color: $color-secondary-main;
@@ -53,9 +60,11 @@
     position: relative;
     z-index: 2;
     transition: all .3s ease;
-    & span{
+
+    & span {
       color: $color-secondary-main;
     }
+
     &:after {
       position: absolute;
       left: 0;
@@ -70,15 +79,17 @@
   }
 
   &.animated:hover {
-    & span{
+    & span {
       color: #fff;
     }
+
     &:after {
       width: 100%;
     }
   }
 }
-.btn-loading{
+
+.btn-loading {
   display: inline-block;
   width: 50px;
   height: 30px;

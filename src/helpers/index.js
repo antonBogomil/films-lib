@@ -1,4 +1,4 @@
-import {USER_STORAGE} from "../const";
+import {USER_STORAGE} from "../const/Constants";
 // import store from 'store';
 // import {login} from "store/actions/auth";
 const _setStorage = (name, value) => {
