@@ -1,6 +1,33 @@
-@import "../../styles/constants";
-.main-footer{
+@import "../../styles/constants.scss";
+
+.main-footer {
   flex-shrink: 0;
-  height: 200px;
-  background-color:  $color-primary-dark;
+  text-align: center;
+  .f-top{
+    position: relative;
+    border-top: 2px solid $color-secondary-main;
+    border-bottom: 2px solid $color-secondary-main;
+  }
+  .f-image {
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    position: absolute;
+    background-image: url("../../assets/footer-background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .f-overlay{
+    background-color: $color-primary-dark;
+    opacity: .8;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+  }
+  .f-bottom{
+    height: 100px;
+    background-color: $color-primary-main;
+  }
 }

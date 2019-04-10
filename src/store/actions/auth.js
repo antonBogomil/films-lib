@@ -9,7 +9,9 @@ export const login = (params, callback) => {
 				if (data.success) {
 					dispatch({
 						type: userActionTypes.LOGIN,
-						payload: {}
+						payload: {
+							user: data.user
+						}
 					});
 				} else {
 					dispatch({
@@ -30,13 +32,12 @@ export const login = (params, callback) => {
 export const checkAuth = () => {
 	return dispatch => {
 		api.get(API_AUTH, (data) => {
-			if (data && data.isAuth) {
+			if (data && data.user) {
+
 				dispatch({
 					type: userActionTypes.LOGIN,
 					payload: {
-						name: data.name,
-						email: data.email,
-						admin: data.isAdmin,
+						user: data.user,
 					}
 				});
 			}

@@ -9,7 +9,7 @@ import {BrowserRouter} from 'react-router-dom';
 const Sign = React.lazy(() => import('components/pages/sign/Sign'));
 const Private = React.lazy(() => import('../Private'));
 
-const App = (props) => {
+const App = () => {
 	return (
 		<Suspense fallback={<Preloader size='l'/>}>
 			<SecureContainer privateComponent={

@@ -1,11 +1,14 @@
 @import "../../../styles/constants";
+
 .menu {
   display: flex;
   margin: 0;
   padding: 0;
+
   li {
     display: inline-block;
     padding: 0 10px;
+
     a:not(.btn) {
       font-weight: 400;
       display: inline-block;
@@ -15,7 +18,8 @@
       color: #fff;
       font-size: 14px;
       letter-spacing: .1em;
-      &:after{
+
+      &:after {
         position: absolute;
         display: inline-block;
         width: 0;
@@ -26,18 +30,56 @@
         transition: .3s all ease-in-out;
         background: $gradient-main;
       }
-      &.active,&:hover{
+
+      &.active, &:hover {
         color: $color-secondary-main
       }
-      &.active:after,&:hover:after{
+
+      &.active:after, &:hover:after {
         width: 100%;
       }
-      &:hover{
+
+      &:hover {
 
       }
     }
 
   }
 
+  .menu-user-info {
+    position: relative;
+    .user-info {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 50px;
+      overflow: hidden;
+      overflow-wrap: break-word;
+      max-width: 200px;
+      margin-top: 10px;
+      padding: 10px;
+      span{
+        font-size: 12px;
+        color: $color-secondary-main;
+      }
+    }
+    .user-info-icon {
+      color: #fff;
+      cursor: pointer;
+      font-size: 26px;
+      text-align: center;
+      vertical-align: middle;
+      transition: .3s ease;
+      &:hover{
+        color: $color-secondary-main;
+      }
+    }
+    &.show {
+      .user-info{
+        display: block;
 
+      }
+    }
+
+  }
 }

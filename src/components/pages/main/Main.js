@@ -28,38 +28,42 @@ class Main extends Component {
 	render() {
 		return (
 			<div className='container'>
-				<div className='text-left'>
-					<p className='text-1'>
-						<TextTypingAnimation>
-							Lorem ipsum dolor sit amet 2019.
-						</TextTypingAnimation>
-					</p>
-					<h1>Hello world</h1>
-					<p className='text-1'>Literally it does not mean anything.
-						It is a sequence of words without a sense of
-						Latin derivation that make up a text also known as filler text,
-						fictitious, blind or placeholder</p>
-					<div className='btn-container'>
-						<Button variant={'animated'}>
-							Read more
-						</Button>
+				<div className='wrapper'>
+
+					<div className='text-left'>
+						<p className='text-1'>
+							<TextTypingAnimation>
+								Lorem ipsum dolor sit amet 2019.
+							</TextTypingAnimation>
+						</p>
+						<h1>Hello world</h1>
+						<p className='text-1'>Literally it does not mean anything.
+							It is a sequence of words without a sense of
+							Latin derivation that make up a text also known as filler text,
+							fictitious, blind or placeholder</p>
+						<div className='btn-container'>
+							<Button variant={'animated'}>
+								Read more
+							</Button>
+						</div>
 					</div>
+					<Fade left>
+						<p>
+							Find movies currently in theaters near you. Sort by critic rating,
+							get movie times, buy tickets and watch trailers and interviews.
+						</p>
+					</Fade>
+					{
+						this.state.startAnimation && data.map((item, i) => {
+							return (<Article key={i}
+											 title={item.title}
+											 text={item.text}
+											 type={i % 2 === 0 ? 'img_left' : 'img_right'}
+											 imgSrc={images[item.img]}/>);
+						})
+					}
+
 				</div>
-				<Fade left>
-					<p>
-						Find movies currently in theaters near you. Sort by critic rating,
-						get movie times, buy tickets and watch trailers and interviews.
-					</p>
-				</Fade>
-				{
-					this.state.startAnimation && data.map((item, i) => {
-						return (<Article key={i}
-										 title={item.title}
-										 text={item.text}
-										 type={i % 2 === 0 ? 'img_left' : 'img_right'}
-										 imgSrc={images[item.img]}/>);
-					})
-				}
 			</div>
 		);
 

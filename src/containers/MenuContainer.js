@@ -24,7 +24,8 @@ const mapDispatchToProps = dispatch => ({
 });
 const mapStateToProps = (state) => {
     return {
-		isAuth: state.auth.isAuth
+		isAuth: state.auth.isAuth,
+        user: state.auth.user
     };
 };
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MenuContainer));

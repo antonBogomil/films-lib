@@ -5,7 +5,6 @@ import store from './store';
 import {Provider} from 'react-redux';
 import ErrorCatch from 'components/elements/error';
 import './styles/default.scss';
-import {BrowserRouter} from 'react-router-dom';
 import {checkAuth} from './store/actions/auth';
 store.dispatch(checkAuth());
 ReactDOM.render(

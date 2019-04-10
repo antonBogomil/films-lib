@@ -1,0 +1,76 @@
+@import "styles/constants.scss";
+
+.card {
+  width: 320px;
+  margin: 20px;
+  box-sizing: border-box;
+  position: relative;
+  padding:  0 12px 12px;
+  border-left: 2px solid $color-secondary-main;
+  border-bottom: 2px solid $color-secondary-main;
+
+  .card-image-container {
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .card-text {
+    padding: 12px 0;
+
+    .card-name {
+      color: $color-secondary-main;
+      font-size: 16px;
+    }
+
+    .card-description {
+      font-size: 14px;
+      text-transform: none;
+      font-style: italic;
+    }
+  }
+
+  .card-bottom {
+    position: relative;
+    height: 20px;
+
+    .film-rating {
+      position: absolute;
+      right: 0;
+      cursor: pointer;
+      color: $color-secondary-main;
+    }
+
+    .film-date {
+      position: absolute;
+      left: 0;
+      font-size: 12px;
+
+    }
+  }
+
+  .card-overlay{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    cursor: pointer;
+    top: 0;
+    opacity: 0;
+    transition: .3s ease;
+    left: 0;
+    background-color: $color-primary-main;
+  }
+
+}
+.card:hover{
+  .card-overlay{
+    display: block;
+    opacity: .80;
+
+  }
+}
