@@ -3,14 +3,18 @@
 .main-footer {
   flex-shrink: 0;
   text-align: center;
-  .f-top{
+
+  .f-top {
     position: relative;
+    min-height: 300px;
     border-top: 2px solid $color-secondary-main;
-    border-bottom: 2px solid $color-secondary-main;
+    border-bottom: 1px solid $color-primary-light;
   }
+
   .f-image {
     width: 100%;
     height: 100%;
+
     z-index: -2;
     position: absolute;
     background-image: url("../../assets/footer-background.jpg");
@@ -18,7 +22,8 @@
     background-position: center;
     background-repeat: no-repeat;
   }
-  .f-overlay{
+
+  .f-overlay {
     background-color: $color-primary-dark;
     opacity: .8;
     position: absolute;
@@ -26,8 +31,35 @@
     width: 100%;
     height: 100%;
   }
-  .f-bottom{
-    height: 100px;
+  .footer-content{
+    display: flex;
+
+    justify-content: space-between;
+    text-align: left;
+    h6{
+      color: $color-secondary-main;
+    }
+    ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li{
+        color: #fff;
+        font-size: 14px;
+        padding: 6px 0;
+      }
+    }
+  }
+  .f-bottom {
     background-color: $color-primary-main;
+
+    .footer-copyright{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100px;
+      font-size: 12px;
+
+    }
   }
 }
